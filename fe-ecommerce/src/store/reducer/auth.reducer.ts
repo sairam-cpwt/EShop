@@ -44,7 +44,7 @@ export const auth = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    resetState: () => initialState,
+    reset: () => initialState,
   },
 
   extraReducers: (builder) => {
@@ -63,7 +63,7 @@ export const auth = createSlice({
 
     builder.addCase(admin_login.rejected, (state, action) => {
       state.loading = false;
-      state.errorMsg = (action.error as string) || "Login Failed";
+      state.errorMsg = (action.payload as string) || "Login Failed";
     });
   },
 });

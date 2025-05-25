@@ -6,13 +6,14 @@ import type { AppDispatch, RootState } from "~/store";
 import type { LoginData } from "~/types/Login";
 import { admin_login } from "~/store/reducer/auth.reducer";
 import Button from "~/components/Button";
-import { Wrapper, type WrapperRef } from "~/components/Wrapper";
-import { useRef } from "react";
+import { Wrapper } from "~/components/Wrapper";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const AdminLogin = () => {
   const dispatch = useDispatch<AppDispatch>();
   const state = useSelector((state: RootState) => state.auth);
-  const wrappedRef = useRef<WrapperRef>(null);
 
   const { control, ...rest } = useForm<LoginData>({
     defaultValues: {
@@ -21,6 +22,22 @@ const AdminLogin = () => {
     },
   });
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    const redirect = () => {
+      timer = setTimeout(() => navigate("/"), 1500);
+    };
+
+    if (state.userInfo) {
+      toast.success("Login Success, Redirecting...");
+      redirect();
+    }
+
+    return () => clearTimeout(timer);
+  }, [state, navigate]);
+
   const handdleSubmit = async (e: LoginData) => {
     dispatch(admin_login(e));
   };
@@ -28,7 +45,8 @@ const AdminLogin = () => {
   return (
     <Wrapper
       className="min-w-screen min-h-screen bg-[#cdcae9] flex justify-center items-center"
-      ref={wrappedRef}
+      resetSlice={"auth"}
+      resetOn="unmount"
     >
       <div className="w-[400px] text-[#fff] p-2">
         <div className="bg-[#6f68d1] p-4 rounded-md">
@@ -67,9 +85,7 @@ const AdminLogin = () => {
                 {state.loading ? "Loading..." : "Login"}
               </Button>
 
-              <Button type="button" onClick={() => wrappedRef.current?.reset()}>
-                Reset
-              </Button>
+              <Button type="button">Reset</Button>
             </form>
             <DevTool control={control} />
           </FormProvider>
