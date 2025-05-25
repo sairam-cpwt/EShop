@@ -1,9 +1,45 @@
 import { Request, Response } from "express";
+import { AdminUserModal } from "@/modals/auth/AdminAuthModal";
+import { AdminLoginBody } from "@/routes/schema/auth.schema";
+import { errorResponse, successResponse } from "@/utils/response";
+import bcrypt from "bcrypt";
+import { createToken } from "@/utils/token";
 
 class AuthController {
   authAdmin = async (req: Request, res: Response) => {
-    console.log(req.body);
-    res.send("");
+    try {
+      const { email, password } = req.body as AdminLoginBody;
+
+      const isAdminExist = await AdminUserModal.findOne({ email }).select(
+        "+password"
+      );
+      if (isAdminExist) {
+        const isPasswordMatch = await bcrypt.compare(
+          password,
+          isAdminExist.password
+        );
+        if (!isPasswordMatch) {
+          errorResponse(res, "Email / Password invalids", 400);
+          return;
+        }
+
+        const token = await createToken({
+          id: isAdminExist?.id,
+          role: isAdminExist?.role,
+        });
+
+        res.cookie("access_token", token, {
+          expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+          httpOnly: true,
+        });
+        successResponse(res, "Login success", { token: token }, 200);
+      } else {
+        errorResponse(res, "Email / Password invalid", 400);
+        return;
+      }
+    } catch (error) {
+      errorResponse(res, "Something went wrong");
+    }
   };
 }
 

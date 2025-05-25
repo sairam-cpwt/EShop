@@ -1,23 +1,24 @@
-import { admin_login } from "../../store/reducer/auth.reducer";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
 import { DevTool } from "@hookform/devtools";
 import { FormProvider, useForm } from "react-hook-form";
-import Input from "../../components/Form/Input";
-import type { LoginData } from "../../types/Login";
+import Input from "~/components/Form/Input";
+import type { AppDispatch, RootState } from "~/store";
+import type { LoginData } from "~/types/Login";
+import { admin_login } from "~/store/reducer/auth.reducer";
+import Button from "~/components/Button";
 
 const AdminLogin = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const state = useSelector((state: RootState) => state.auth);
 
   const { control, ...rest } = useForm<LoginData>({
     defaultValues: {
-      email: "test@test.com",
-      password: "testing",
+      email: "johndoe@gmail.com",
+      password: "John@1234",
     },
   });
 
   const handdleSubmit = async (e: LoginData) => {
-    console.log(e);
     dispatch(admin_login(e));
   };
 
@@ -51,9 +52,13 @@ const AdminLogin = () => {
                 placeholder="Enter User Password"
               />
 
-              <button className=" bg-slate-800 w-full cursor-pointer hover:shadow-blue-300/ hover:shadow-lg text-white rounded-md px-7 py-3 mb-3">
-                Login
-              </button>
+              <Button
+                className=" bg-slate-800 w-full cursor-pointer hover:shadow-blue-300/ hover:shadow-lg text-white"
+                disabled={state.loading}
+                loading={state.loading}
+              >
+                {state.loading ? "Loading..." : "Login"}
+              </Button>
             </form>
             <DevTool control={control} />
           </FormProvider>
