@@ -19,7 +19,7 @@ export const admin_login = createAsyncThunk<APIResponse, LoginData>(
         withCredentials: true,
       });
 
-      return data;
+      return thunkAPI.fulfillWithValue(data);
     } catch (error: unknown) {
       return thunkAPI.rejectWithValue(handleApiError(error));
     }
@@ -30,7 +30,7 @@ interface InitialState {
   successMsg: string;
   errorMsg: string | null;
   loading: boolean;
-  userInfo: string;
+  userInfo: string | null;
 }
 
 const initialState: InitialState = {
@@ -43,7 +43,9 @@ const initialState: InitialState = {
 export const auth = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    resetState: () => initialState,
+  },
 
   extraReducers: (builder) => {
     builder.addCase(admin_login.pending, (state) => {
@@ -51,14 +53,17 @@ export const auth = createSlice({
     });
 
     builder.addCase(admin_login.fulfilled, (state, action) => {
+      console.log(action.payload);
       state.loading = false;
-      state.errorMsg = null;
       state.userInfo = action.payload.data?.token;
+      state.successMsg = action.payload.message;
+
+      localStorage.setItem("token", action.payload.data.token);
     });
 
     builder.addCase(admin_login.rejected, (state, action) => {
       state.loading = false;
-      state.errorMsg = action.error.message || "Login Failed";
+      state.errorMsg = (action.error as string) || "Login Failed";
     });
   },
 });

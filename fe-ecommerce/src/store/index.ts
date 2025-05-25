@@ -1,12 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./rootReducer";
+import {
+  errorToastMiddleware,
+  successToastMiddleware,
+} from "./middleware/InfoMiddleware";
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
       serializableCheck: false,
-    });
+    })
+      .concat(errorToastMiddleware)
+      .concat(successToastMiddleware);
   },
   devTools: true,
 });

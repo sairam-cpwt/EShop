@@ -13,6 +13,7 @@ class AuthController {
       const isAdminExist = await AdminUserModal.findOne({ email }).select(
         "+password"
       );
+
       if (isAdminExist) {
         const isPasswordMatch = await bcrypt.compare(
           password,
