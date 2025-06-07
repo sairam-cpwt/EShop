@@ -4,6 +4,7 @@ import MainLayout from "~/layout/mainLayout";
 const AdminDashboard = lazy(() => import("~/pages/dashboard/AdminDashboard"));
 const Orders = lazy(() => import("~/pages/orders"));
 const Categories = lazy(() => import("~/pages/categories"));
+const Seller = lazy(() => import("~/pages/seller"));
 
 const AdminRoutes = [
   {
@@ -26,6 +27,13 @@ const AdminRoutes = [
         index: true,
         roles: ["admin", "seller"],
         element: <Categories />,
+      },
+
+      {
+        path: "/seller",
+        index: true,
+        roles: ["admin", "seller"],
+        element: <Seller />,
       },
     ],
   },
