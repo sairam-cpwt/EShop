@@ -1,7 +1,12 @@
 import { Request, Response } from "express";
 import { AdminUserModal } from "@/modals/auth/AdminAuthModal";
 import { AdminLoginBody } from "@/routes/schema/auth.schema";
-import { errorResponse, successResponse } from "@/utils/response";
+import {
+  ErrorResponse,
+  errorResponse,
+  SuccessResponse,
+  successResponse,
+} from "@/utils/response";
 import bcrypt from "bcrypt";
 import { createToken } from "@/utils/token";
 
@@ -40,6 +45,31 @@ class AuthController {
       }
     } catch (error) {
       errorResponse(res, "Something went wrong");
+    }
+  };
+
+  getUser = async (req: Request, res: Response) => {
+    const { id, role } = req;
+
+    try {
+      if (role === "admin") {
+        const user = await AdminUserModal.findById({ id });
+        SuccessResponse(res, {
+          data: user,
+          message: "User logged in successfully",
+        });
+        return;
+      }
+
+      ErrorResponse(res, {
+        message: "User not a admin",
+      });
+      return;
+    } catch (error) {
+      ErrorResponse(res, {
+        message: "Something went wrong",
+        statusCode: 400,
+      });
     }
   };
 }
