@@ -16,7 +16,7 @@ export default function Button({ children, loading, ...rest }: BtnProps) {
   return (
     <button
       {...rest}
-      className={`rounded-md px-7 py-3 mb-3 disabled:bg-slate-400 ${rest.className}`}
+      className={`rounded-md px-7 py-1 disabled:bg-slate-400 ${rest.className}`}
     >
       {content}
     </button>

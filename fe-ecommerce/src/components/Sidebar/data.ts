@@ -19,6 +19,7 @@ export const LinksData = [
   },
 
   {
+    id: 2,
     icon: ShoppingBasket,
     label: "Orders",
     link: "/admin/orders",
@@ -26,44 +27,50 @@ export const LinksData = [
   },
 
   {
+    id: 3,
     icon: LayoutDashboard,
     label: "Categories",
-    link: "categories",
+    link: "/categories",
     role: ["admin", "seller"],
   },
 
   {
+    id: 4,
     icon: UserRoundCogIcon,
     label: "Sellers",
-    link: "seller",
+    link: "/seller",
     role: ["admin", "seller"],
   },
 
   {
+    id: 5,
     icon: DollarSignIcon,
     label: "Payment Request",
-    link: "payment-request",
+    link: "/payment-request",
     role: ["admin", "seller"],
   },
 
   {
+    id: 6,
     icon: Shield,
     label: "Manage Sellers",
-    link: "manage-sellers",
+    link: "/manage-sellers",
     role: ["admin", "seller"],
   },
 
   {
+    id: 7,
     icon: MessageCircle,
     label: "Live Chat",
-    link: "live-chat",
+    link: "/live-chat",
     role: ["admin", "seller"],
   },
 
   {
+    id: 8,
     icon: LogOutIcon,
     label: "Logout",
-    link: "logout",
+    link: "/logout",
     role: ["admin", "seller"],
   },
 ];
