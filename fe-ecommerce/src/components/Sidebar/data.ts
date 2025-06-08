@@ -31,7 +31,7 @@ export const LinksData = [
     id: 3,
     icon: LayoutDashboard,
     label: "Categories",
-    link: "/categories",
+    link: "/admin/categories",
     role: ["admin", "seller"],
   },
 
@@ -39,7 +39,7 @@ export const LinksData = [
     id: 4,
     icon: UserRoundCogIcon,
     label: "Sellers",
-    link: "/seller",
+    link: "/admin/seller",
     role: ["admin", "seller"],
   },
 
@@ -47,7 +47,7 @@ export const LinksData = [
     id: 5,
     icon: DollarSignIcon,
     label: "Payment Request",
-    link: "/payment-request",
+    link: "/admin/payment-request",
     role: ["admin", "seller"],
   },
 
@@ -55,7 +55,7 @@ export const LinksData = [
     id: 6,
     icon: Shield,
     label: "Manage Sellers",
-    link: "/manage-sellers",
+    link: "/admin/manage-sellers",
     role: ["admin", "seller"],
   },
 
@@ -63,7 +63,7 @@ export const LinksData = [
     id: 9,
     icon: GitPullRequestArrowIcon,
     label: "Sellers Requests",
-    link: "/seller-requests",
+    link: "/admin/seller-requests",
     role: ["admin", "seller"],
   },
 
@@ -71,7 +71,7 @@ export const LinksData = [
     id: 7,
     icon: MessageCircle,
     label: "Live Chat",
-    link: "/live-chat",
+    link: "/admin/live-chat",
     role: ["admin", "seller"],
   },
 
@@ -79,7 +79,7 @@ export const LinksData = [
     id: 8,
     icon: LogOutIcon,
     label: "Logout",
-    link: "/logout",
+    link: "/admin/logout",
     role: ["admin", "seller"],
   },
 ];
