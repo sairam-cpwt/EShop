@@ -56,7 +56,7 @@ export default function Orders() {
                 <div className="py-3 w-[18%] font-medium">Pending</div>
                 <div className="py-3 w-[18%] font-medium">Pending</div>
                 <div className="py-3 w-[18%] font-medium">
-                  <Link to="#">View</Link>
+                  <Link to={`/order/details/${1234}`}>View</Link>
                 </div>
                 <div
                   className="py-3 w-[8%] font-medium"
