@@ -59,6 +59,14 @@ export const LinksData = [
   },
 
   {
+    id: 9,
+    icon: Shield,
+    label: "Sellers Requests",
+    link: "/seller-requests",
+    role: ["admin", "seller"],
+  },
+
+  {
     id: 7,
     icon: MessageCircle,
     label: "Live Chat",
