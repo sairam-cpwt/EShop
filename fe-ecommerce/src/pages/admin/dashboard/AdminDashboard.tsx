@@ -9,12 +9,10 @@ export default function AdminDashboard() {
         name: "Orders",
         data: [23, 34, 45, 56, 76, 34, 23, 76, 86, 78, 34, 80],
       },
-
       {
-        name: "Revenew",
+        name: "Revenue",
         data: [15, 85, 54, 124, 68, 47, 23, 25, 69, 77, 98, 85],
       },
-
       {
         name: "Sellers",
         data: [15, 85, 23, 34, 55, 68, 47, 23, 25, 69, 69, 57],
@@ -22,7 +20,7 @@ export default function AdminDashboard() {
     ],
 
     options: {
-      colors: ["#181ee8", "#181ee8"],
+      colors: ["#4ade80", "#60a5fa", "#facc15"], // green, blue, yellow
 
       chart: {
         background: "transparent",
@@ -33,21 +31,28 @@ export default function AdminDashboard() {
         enabled: false,
       },
 
-      strock: {
+      stroke: {
         show: true,
-        curve: ["smooth", "straight", "stepline"],
+        curve: "smooth",
         lineCap: "butt",
-        colors: "#f0f0f0",
-        width: 0.5,
+        colors: ["#fff"],
+        width: 2,
         dashArray: 0,
+      },
+
+      legend: {
+        position: "top",
+        labels: {
+          colors: "#ffffff",
+        },
       },
 
       xaxis: {
         categories: [
           "JAN",
           "FEB",
-          "APR",
           "MAR",
+          "APR",
           "MAY",
           "JUN",
           "JUL",
@@ -57,41 +62,23 @@ export default function AdminDashboard() {
           "NOV",
           "DEC",
         ],
+      },
 
-        legend: {
-          position: "top",
-        },
-
-        responsive: [
-          {
-            breakpoint: 565,
-            yaxis: [
-              "JAN",
-              "FEB",
-              "APR",
-              "MAR",
-              "MAY",
-              "JUN",
-              "JUL",
-              "AUG",
-              "SEP",
-              "OCT",
-              "NOV",
-              "DEC",
-            ],
-            options: {
-              plotOptions: {
-                bar: {
-                  horizantal: true,
-                },
-                chart: {
-                  height: "550px",
-                },
+      responsive: [
+        {
+          breakpoint: 565,
+          options: {
+            plotOptions: {
+              bar: {
+                horizontal: true,
               },
             },
+            chart: {
+              height: 550,
+            },
           },
-        ],
-      },
+        },
+      ],
     },
   };
 

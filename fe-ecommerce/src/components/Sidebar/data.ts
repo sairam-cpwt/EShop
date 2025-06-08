@@ -9,93 +9,93 @@ import {
   ShoppingBasket,
   UserRoundCogIcon,
 } from "lucide-react";
+import type { ROLES } from "~/types";
 
-export const LinksData = [
-  {
-    id: 1,
-    icon: CircleGauge,
-    label: "Dashboard",
-    link: "/admin/dashboard",
-    role: ["admin", "seller"],
-  },
+export const LinksData = {
+  admin: [
+    {
+      id: 1,
+      icon: CircleGauge,
+      label: "Dashboard",
+      link: "/admin/dashboard",
+      role: ["admin"],
+    },
 
-  {
-    id: 2,
-    icon: ShoppingBasket,
-    label: "Orders",
-    link: "/admin/orders",
-    role: ["admin", "seller"],
-  },
+    {
+      id: 2,
+      icon: ShoppingBasket,
+      label: "Orders",
+      link: "/admin/orders",
+      role: ["admin"],
+    },
 
-  {
-    id: 3,
-    icon: LayoutDashboard,
-    label: "Categories",
-    link: "/admin/categories",
-    role: ["admin", "seller"],
-  },
+    {
+      id: 3,
+      icon: LayoutDashboard,
+      label: "Categories",
+      link: "/admin/categories",
+      role: ["admin"],
+    },
 
-  {
-    id: 4,
-    icon: UserRoundCogIcon,
-    label: "Sellers",
-    link: "/admin/seller",
-    role: ["admin", "seller"],
-  },
+    {
+      id: 4,
+      icon: UserRoundCogIcon,
+      label: "Sellers",
+      link: "/admin/seller",
+      role: ["admin"],
+    },
 
-  {
-    id: 5,
-    icon: DollarSignIcon,
-    label: "Payment Request",
-    link: "/admin/payment-request",
-    role: ["admin", "seller"],
-  },
+    {
+      id: 5,
+      icon: DollarSignIcon,
+      label: "Payment Request",
+      link: "/admin/payment-request",
+      role: ["admin"],
+    },
 
-  {
-    id: 6,
-    icon: Shield,
-    label: "Manage Sellers",
-    link: "/admin/manage-sellers",
-    role: ["admin", "seller"],
-  },
+    {
+      id: 6,
+      icon: Shield,
+      label: "Manage Sellers",
+      link: "/admin/manage-sellers",
+      role: ["admin"],
+    },
 
-  {
-    id: 9,
-    icon: GitPullRequestArrowIcon,
-    label: "Sellers Requests",
-    link: "/admin/seller-requests",
-    role: ["admin", "seller"],
-  },
+    {
+      id: 9,
+      icon: GitPullRequestArrowIcon,
+      label: "Sellers Requests",
+      link: "/admin/seller-requests",
+      role: ["admin"],
+    },
 
-  {
-    id: 7,
-    icon: MessageCircle,
-    label: "Live Chat",
-    link: "/admin/live-chat",
-    role: ["admin", "seller"],
-  },
+    {
+      id: 7,
+      icon: MessageCircle,
+      label: "Live Chat",
+      link: "/admin/live-chat",
+      role: ["admin"],
+    },
 
-  {
-    id: 8,
-    icon: LogOutIcon,
-    label: "Logout",
-    link: "/admin/logout",
-    role: ["admin", "seller"],
-  },
-];
+    {
+      id: 8,
+      icon: LogOutIcon,
+      label: "Logout",
+      link: "/admin/logout",
+      role: ["admin"],
+    },
+  ],
 
-export const getNavData = (role: string) => {
-  const constructedLinks = [];
+  seller: [
+    {
+      id: 1,
+      icon: CircleGauge,
+      label: "Dashboard",
+      link: "/seller/dashboard",
+    },
+  ],
+};
 
-  for (let i = 0; i <= LinksData.length; i++) {
-    const currentRole = LinksData[i]?.role;
-
-    for (let j = 0; j <= currentRole?.length; j++) {
-      if (role === currentRole[j]) {
-        constructedLinks.push(LinksData[i]);
-      }
-    }
-  }
-
-  return constructedLinks;
+export const getNavData = (role: ROLES) => {
+  return LinksData[role];
 };

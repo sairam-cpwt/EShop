@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function SideBar({ setShowSideBar, showSideBar }: Props) {
-  const sideBarLinks = getNavData("admin");
+  const sideBarLinks = getNavData("seller");
   const { pathname } = useLocation();
 
   return (
