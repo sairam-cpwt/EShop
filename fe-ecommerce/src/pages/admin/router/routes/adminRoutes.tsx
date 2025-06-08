@@ -24,54 +24,54 @@ const AdminRoutes = [
     children: [
       {
         path: "/admin/dashboard",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <AdminDashboard />,
       },
       {
         path: "/admin/orders",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <Orders />,
       },
       {
         path: "/admin/order/details/:id",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <OrderDetails />,
       },
       {
         path: "/admin/categories",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <Categories />,
       },
 
       {
         path: "/admin/seller",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <Seller />,
       },
       {
         path: "/admin/payment-request",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <PaymentRequests />,
       },
       {
         path: "/admin/manage-sellers",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <ManageSellers />,
       },
 
       {
         path: "/admin/seller-requests",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <SellerRequest />,
       },
       {
         path: "/admin/seller/view/:id",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <ViewSeller />,
       },
       {
         path: "/admin/live-chat",
-        roles: ["admin", "seller"],
+        roles: ["admin"],
         element: <LiveChat />,
       },
     ],
