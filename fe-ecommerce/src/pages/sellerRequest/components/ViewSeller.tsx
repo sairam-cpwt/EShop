@@ -2,7 +2,6 @@ import { useParams } from "react-router";
 
 export default function ViewSeller() {
   const params = useParams();
-  console.log(params);
 
   return (
     <>
@@ -11,7 +10,7 @@ export default function ViewSeller() {
         <h1 className="text-[20px] font-bold mb-3"> Seller Details </h1>
         <div className="w-full p-4 bg-[#6a5fdf] rounded-md">
           <div className="w-full flex flex-wrap text-[#d0d2d6]">
-            <div className="w-3/12 flex justify-center items-center py-3">
+            <div className="w-12/12 sm:w-12/12 md:w-4/12 lg:w-4/12  flex justify-center items-center py-3">
               <div>
                 <img
                   className="w-full h-[230px]"
@@ -21,8 +20,8 @@ export default function ViewSeller() {
               </div>
             </div>
 
-            <div className="w-4/12">
-              <div className="px-0 md:px-5 py-2">
+            <div className="w-12/12 sm:w-6/12 md:w-4/12 lg:w-4/12">
+              <div className="px-0 md:px-2 lg:px-5 py-2">
                 <div className="py-2 text-lg">
                   <h2>Basic Info</h2>
                 </div>
@@ -53,8 +52,8 @@ export default function ViewSeller() {
               </div>
             </div>
 
-            <div className="w-4/12">
-              <div className="px-0 md:px-5 py-2">
+            <div className="w-12/12 sm:w-6/12 md:w-4/12 lg:w-4/12">
+              <div className="px-0 md:px-2 lg:px-5 py-2">
                 <div className="py-2 text-lg">
                   <h2>Address</h2>
                 </div>

@@ -1,6 +1,7 @@
 import {
   CircleGauge,
   DollarSignIcon,
+  GitPullRequestArrowIcon,
   LayoutDashboard,
   LogOutIcon,
   MessageCircle,
@@ -60,7 +61,7 @@ export const LinksData = [
 
   {
     id: 9,
-    icon: Shield,
+    icon: GitPullRequestArrowIcon,
     label: "Sellers Requests",
     link: "/seller-requests",
     role: ["admin", "seller"],

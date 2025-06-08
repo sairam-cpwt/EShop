@@ -11,6 +11,7 @@ const SellerRequest = lazy(() => import("~/pages/sellerRequest"));
 const ViewSeller = lazy(
   () => import("~/pages/sellerRequest/components/ViewSeller")
 );
+const LiveChat = lazy(() => import("~/pages/live-chat"));
 
 const AdminRoutes = [
   {
@@ -57,6 +58,11 @@ const AdminRoutes = [
         path: "/seller/view/:id",
         roles: ["admin", "seller"],
         element: <ViewSeller />,
+      },
+      {
+        path: "/live-chat",
+        roles: ["admin", "seller"],
+        element: <LiveChat />,
       },
     ],
   },
