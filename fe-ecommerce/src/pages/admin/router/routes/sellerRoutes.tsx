@@ -14,7 +14,7 @@ const SellerRoutes = [
     element: <MainLayout />,
     children: [
       {
-        path: "/",
+        path: "/dashboard",
         roles: ["admin"],
         element: <SellerDashboard />,
       },

@@ -24,7 +24,7 @@ export const LinksData = {
       id: 1,
       icon: CircleGauge,
       label: "Dashboard",
-      link: "/admin/dashboard",
+      link: "/dashboard",
       role: ["admin"],
     },
 
@@ -98,7 +98,7 @@ export const LinksData = {
       id: 1,
       icon: CircleGauge,
       label: "Dashboard",
-      link: "/seller/dashboard",
+      link: "/dashboard",
     },
     {
       id: 2,

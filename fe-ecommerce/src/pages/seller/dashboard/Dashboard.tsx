@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Chart from "react-apexcharts";
 import { Link } from "react-router";
+import BoardCard from "~/components/BoardCard";
 
 export default function AdminDashboard() {
   const options: ApexOptions = {
@@ -89,49 +90,49 @@ export default function AdminDashboard() {
   return (
     <div className="px-2 md:px-7 py-5">
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-7">
-        <div className="flex justify-between items-center p-5 bg-[#fae8e8] rounded-md gap-8">
-          <div className="flex flex-col justify-start items-start text-[#5c5a5a]">
-            <h2 className="text-3xl font-bold">$24343</h2>
-            <span className="text-md font-medium">Total Sales</span>
-          </div>
+        <BoardCard
+          title="#234234"
+          subTitle="Total Sales"
+          className="bg-[#fae8e8]"
+          icon={
+            <div className="w-[40px] h-[47px] rounded-full bg-[#fa0305] flex justify-center items-center text-xl">
+              <DollarSign />
+            </div>
+          }
+        />
 
-          <div className="w-[40px] h-[47px] rounded-full bg-[#fa0305] flex justify-center items-center text-xl">
-            <DollarSign className="text-[#fae8e8]" />
-          </div>
-        </div>
+        <BoardCard
+          title="50"
+          subTitle="Products"
+          className="bg-[#fae8e8]"
+          icon={
+            <div className="w-[40px] h-[47px] rounded-full bg-[#760077] flex justify-center items-center text-xl">
+              <PackageCheck className="text-[#fae8e8]" />
+            </div>
+          }
+        />
 
-        <div className="flex justify-between items-center p-5 bg-[#fde2ff] rounded-md gap-8">
-          <div className="flex flex-col justify-start items-start text-[#5c5a5a]">
-            <h2 className="text-3xl font-bold">50</h2>
-            <span className="text-md font-medium">Products</span>
-          </div>
+        <BoardCard
+          title="50"
+          subTitle="Products"
+          className="bg-[#e9feea]"
+          icon={
+            <div className="w-[40px] h-[47px] rounded-full bg-[#038000] flex justify-center items-center text-xl">
+              <Users2 className="text-[#fae8e8]" />
+            </div>
+          }
+        />
 
-          <div className="w-[40px] h-[47px] rounded-full bg-[#760077] flex justify-center items-center text-xl">
-            <PackageCheck className="text-[#fae8e8]" />
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center p-5 bg-[#e9feea] rounded-md gap-8">
-          <div className="flex flex-col justify-start items-start text-[#5c5a5a]">
-            <h2 className="text-3xl font-bold">10</h2>
-            <span className="text-md font-medium">Orders</span>
-          </div>
-
-          <div className="w-[40px] h-[47px] rounded-full bg-[#038000] flex justify-center items-center text-xl">
-            <Users2 className="text-[#fae8e8]" />
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center p-5 bg-[#ecebff] rounded-md gap-8">
-          <div className="flex flex-col justify-start items-start text-[#5c5a5a]">
-            <h2 className="text-3xl font-bold">900</h2>
-            <span className="text-md font-medium">pending Orders</span>
-          </div>
-
-          <div className="w-[40px] h-[47px] rounded-full bg-[#0200f8] flex justify-center items-center text-xl">
-            <ShoppingBasketIcon className="text-[#fae8e8]" />
-          </div>
-        </div>
+        <BoardCard
+          title="50"
+          subTitle="Products"
+          className="bg-[#ecebff]"
+          icon={
+            <div className="w-[40px] h-[47px] rounded-full bg-[#0200f8] flex justify-center items-center text-xl">
+              <ShoppingBasketIcon className="text-[#fae8e8]" />
+            </div>
+          }
+        />
       </div>
 
       <div className="w-full flex flex-wrap mt-7">
