@@ -2,9 +2,7 @@ import { lazy } from "react";
 
 const MainLayout = lazy(() => import("~/layout/mainLayout"));
 const AddProduct = lazy(() => import("~/pages/seller/addProduct"));
-const AllProducts = lazy(
-  () => import("~/pages/seller/allProducts/AllProducts")
-);
+const AllProducts = lazy(() => import("~/pages/seller/allProducts"));
 const ChatCustomer = lazy(() => import("~/pages/seller/chatCustomer"));
 const ChatSupport = lazy(() => import("~/pages/seller/chatSupport"));
 const SellerDashboard = lazy(() => import("~/pages/seller/dashboard"));
@@ -16,7 +14,7 @@ const SellerRoutes = [
     element: <MainLayout />,
     children: [
       {
-        path: "/seller/dashboard",
+        path: "/",
         roles: ["admin"],
         element: <SellerDashboard />,
       },
@@ -36,7 +34,7 @@ const SellerRoutes = [
         element: <AddProduct />,
       },
       {
-        path: "/seller/all-products",
+        path: "/seller/products",
         roles: ["seller"],
         element: <AllProducts />,
       },
@@ -56,7 +54,7 @@ const SellerRoutes = [
         element: <ChatCustomer />,
       },
       {
-        path: "/seller/chat-support",
+        path: "/seller/support",
         roles: ["seller"],
         element: <ChatSupport />,
       },

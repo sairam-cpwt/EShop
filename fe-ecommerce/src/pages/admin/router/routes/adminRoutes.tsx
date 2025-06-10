@@ -23,7 +23,7 @@ const AdminRoutes = [
     element: <MainLayout />,
     children: [
       {
-        path: "/admin/dashboard",
+        path: "/",
         roles: ["admin"],
         element: <AdminDashboard />,
       },
