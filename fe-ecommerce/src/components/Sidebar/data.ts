@@ -15,6 +15,7 @@ import {
   Shield,
   ShoppingBasket,
   UserRoundCogIcon,
+  UserRoundIcon,
 } from "lucide-react";
 import type { ROLES } from "~/types";
 
@@ -141,6 +142,12 @@ export const LinksData = {
       icon: HeadsetIcon,
       label: "Chat Support",
       link: "/seller/support",
+    },
+    {
+      id: 10,
+      icon: UserRoundIcon,
+      label: "Profile",
+      link: "/seller/profile",
     },
     {
       id: 9,

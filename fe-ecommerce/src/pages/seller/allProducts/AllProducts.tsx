@@ -78,7 +78,7 @@ export default function AllProducts() {
                     >
                       <div className="flex justify-start items-center gap-4">
                         <Link
-                          to="#"
+                          to="/seller/123/edit"
                           className="p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50"
                         >
                           {" "}

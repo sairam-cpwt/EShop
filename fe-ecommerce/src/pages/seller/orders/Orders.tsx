@@ -1,4 +1,4 @@
-import { Edit, Trash } from "lucide-react";
+import { Trash, ViewIcon } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
 import Pagination from "~/components/Pagination";
@@ -78,11 +78,11 @@ export default function Orders() {
                     >
                       <div className="flex justify-start items-center gap-4">
                         <Link
-                          to="#"
+                          to="./details/123"
                           className="p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50"
                         >
                           {" "}
-                          <Edit />{" "}
+                          <ViewIcon />{" "}
                         </Link>
                         <Link
                           to="#"

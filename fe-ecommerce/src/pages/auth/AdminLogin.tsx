@@ -53,7 +53,7 @@ const AdminLogin = () => {
           <div className="h-[70px] flex justify-center items-center">
             <div className="w-[180px] h-[50px]">
               <img
-                src="/public/images/logo.png"
+                src="/images/logo.png"
                 alt="logo.png"
                 className="w-full h-full"
               />

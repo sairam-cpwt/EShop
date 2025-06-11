@@ -28,7 +28,7 @@ export default function SideBar({ setShowSideBar, showSideBar }: Props) {
           <div className="h-[70px] flex flex-col justify-center items-center">
             <Link to={"/"} className="h-[50px] w-[180px]">
               <img
-                src="/public/images/logo.png"
+                src="/images/logo.png"
                 alt="logo.png"
                 className="w-full h-full"
               />
